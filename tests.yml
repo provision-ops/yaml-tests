@@ -1,3 +1,4 @@
 # tests/phpunit: phpunit
+test: id
 yaml-tests/lint: find src -name '*.php' -print0 | xargs -0 -n1 php -l
 yaml-tests/phpcs: bin/phpcs --standard=PSR2 -n src --colors
