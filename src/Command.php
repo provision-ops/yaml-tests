@@ -114,6 +114,12 @@ class Command extends BaseCommand
             'The hostname to use in the status description. Use if automatically detected hostname is not desired.',
             gethostname()
         );
+        $this->addOption(
+            'groups',
+            null,
+            InputOption::VALUE_OPTIONAL,
+            'Only run tests that are in the specified groups. Separate with a comma. Prefix with ! to exclude.'
+        );
     }
 
     /**
