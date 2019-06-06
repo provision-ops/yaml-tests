@@ -302,10 +302,10 @@ class Command extends BaseCommand
                 } else {
                     // If the test has the ignore failure flag, ignore it.
                     if (!empty($test['ignore-failure'])) {
-                        $results_row[] = '<fg=red>✘</> Failed (Ignoring)';
+                        $results_row[] = '<fg=red>!</> Failed but ignoring';
                         $params->state = 'success';
-                        $params->description .= ' | TEST FAILED but is set to ignore.';
-                        $this->warningLite('Failure set to be ignored. Not triggering failure exit code or Commit Status.');
+                        $params->description .= ' | TEST FAILED but is configured to ignore failures.';
+                        $this->warningLite('Test configured to ignore failures. Not triggering failure exit code or commit status.');
                     } else {
                         $results_row[] = '<fg=red>✘</> Failed';
                         $tests_failed = true;
