@@ -305,6 +305,7 @@ class Command extends BaseCommand
                         $results_row[] = '<fg=red>✘</> Failed (Ignoring)';
                         $params->state = 'success';
                         $params->description .= ' | TEST FAILED but is set to ignore.';
+                        $this->warningLite('Failure set to be ignored. Not triggering failure exit code or Commit Status.');
                     } else {
                         $results_row[] = '<fg=red>✘</> Failed';
                         $tests_failed = true;
