@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53e4db8a396d7d996569ae25f5426889",
+    "content-hash": "5f4290f5cabc65f86149045cb12d6199",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -155,6 +155,87 @@
             "time": "2019-03-08T16:55:03+00:00"
         },
         {
+            "name": "consolidation/config",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/consolidation/config.git",
+                "reference": "ddb0e6c650fc5c4e1f13d10b14604d33cebef76c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/consolidation/config/zipball/ddb0e6c650fc5c4e1f13d10b14604d33cebef76c",
+                "reference": "ddb0e6c650fc5c4e1f13d10b14604d33cebef76c",
+                "shasum": ""
+            },
+            "require": {
+                "dflydev/dot-access-data": "^1.1.0",
+                "grasmash/expander": "^1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "g1a/composer-test-scenarios": "^3",
+                "php-coveralls/php-coveralls": "^1",
+                "phpunit/phpunit": "^5",
+                "squizlabs/php_codesniffer": "2.*",
+                "symfony/console": "^2.5|^3|^4",
+                "symfony/yaml": "^2.8.11|^3|^4"
+            },
+            "suggest": {
+                "symfony/yaml": "Required to use Consolidation\\Config\\Loader\\YamlConfigLoader"
+            },
+            "type": "library",
+            "extra": {
+                "scenarios": {
+                    "symfony4": {
+                        "require-dev": {
+                            "symfony/console": "^4.0"
+                        },
+                        "config": {
+                            "platform": {
+                                "php": "7.1.3"
+                            }
+                        }
+                    },
+                    "symfony2": {
+                        "require-dev": {
+                            "symfony/console": "^2.8",
+                            "symfony/event-dispatcher": "^2.8",
+                            "phpunit/phpunit": "^4.8.36"
+                        },
+                        "remove": [
+                            "php-coveralls/php-coveralls"
+                        ],
+                        "config": {
+                            "platform": {
+                                "php": "5.4.8"
+                            }
+                        }
+                    }
+                },
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Consolidation\\Config\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Anderson",
+                    "email": "greg.1.anderson@greenknowe.org"
+                }
+            ],
+            "description": "Provide configuration services for a commandline tool.",
+            "time": "2019-04-06T17:31:34+00:00"
+        },
+        {
             "name": "consolidation/log",
             "version": "dev-master",
             "source": {
@@ -296,50 +377,54 @@
         },
         {
             "name": "consolidation/robo",
-            "version": "dev-state",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/Robo.git",
-                "reference": "ed9cdb84dfeaaddefc45f3f00c1709d52582cd20"
+                "reference": "cf65879a969119251ccf193d5bab480df2995895"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/Robo/zipball/ed9cdb84dfeaaddefc45f3f00c1709d52582cd20",
-                "reference": "ed9cdb84dfeaaddefc45f3f00c1709d52582cd20",
+                "url": "https://api.github.com/repos/consolidation/Robo/zipball/cf65879a969119251ccf193d5bab480df2995895",
+                "reference": "cf65879a969119251ccf193d5bab480df2995895",
                 "shasum": ""
             },
             "require": {
-                "consolidation/annotated-command": "^2.2",
-                "consolidation/log": "~1",
-                "consolidation/output-formatters": "^3.1.5",
-                "dflydev/dot-access-data": "^1.1.0",
-                "grasmash/yaml-expander": "^1.1",
+                "consolidation/annotated-command": "^2.11.0",
+                "consolidation/config": "^1.2",
+                "consolidation/log": "^1.1.1",
+                "consolidation/output-formatters": "^3.1.13",
+                "consolidation/self-update": "^1",
+                "grasmash/yaml-expander": "^1.3",
                 "league/container": "^2.2",
-                "php": ">=5.5.0",
-                "symfony/console": "~2.8|~3.0",
-                "symfony/event-dispatcher": "~2.5|~3.0",
-                "symfony/filesystem": "~2.5|~3.0",
-                "symfony/finder": "~2.5|~3.0",
-                "symfony/process": "~2.5|~3.0"
+                "php": ">=7",
+                "symfony/console": "^3.4|^4",
+                "symfony/event-dispatcher": "^3.4|^4",
+                "symfony/filesystem": "^3|^4",
+                "symfony/finder": "^3|^4",
+                "symfony/process": "^3|^4"
             },
-            "replace": {
-                "codegyre/robo": "< 1.0"
+            "conflict": {
+                "codegyre/robo": "*"
             },
             "require-dev": {
-                "codeception/aspect-mock": "~1",
-                "codeception/base": "^2.2.6",
+                "codeception/aspect-mock": "^1|^2.1.1",
+                "codeception/base": "^2.3.7",
                 "codeception/verify": "^0.3.2",
-                "henrikbjorn/lurker": "~1",
-                "natxet/cssmin": "~3",
-                "patchwork/jsqueeze": "~2",
-                "pear/archive_tar": "^1.4.2",
+                "g1a/composer-test-scenarios": "^3",
+                "goaop/framework": "~2.1.2",
+                "goaop/parser-reflection": "^1.1.0",
+                "natxet/cssmin": "3.0.4",
+                "nikic/php-parser": "^3.1.5",
+                "patchwork/jsqueeze": "^2",
+                "pear/archive_tar": "^1.4.4",
+                "php-coveralls/php-coveralls": "^1",
                 "phpunit/php-code-coverage": "~2|~4",
-                "satooshi/php-coveralls": "~1",
                 "squizlabs/php_codesniffer": "^2.8"
             },
             "suggest": {
                 "henrikbjorn/lurker": "For monitoring filesystem changes in taskWatch",
-                "natxet/CssMin": "For minifying CSS files in taskMinify",
+                "natxet/cssmin": "For minifying CSS files in taskMinify",
                 "patchwork/jsqueeze": "For minifying JS files in taskMinify",
                 "pear/archive_tar": "Allows tar archives to be created and extracted in taskPack and taskExtract, respectively."
             },
@@ -348,15 +433,23 @@
             ],
             "type": "library",
             "extra": {
+                "scenarios": {
+                    "symfony3": {
+                        "require": {
+                            "symfony/console": "^3"
+                        },
+                        "config": {
+                            "platform": {
+                                "php": "7.0.11"
+                            }
+                        }
+                    }
+                },
                 "branch-alias": {
-                    "dev-master": "1.x-dev",
-                    "dev-state": "1.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
-                "classmap": [
-                    "scripts/composer/ScriptHandler.php"
-                ],
                 "psr-4": {
                     "Robo\\": "src"
                 }
@@ -372,7 +465,57 @@
                 }
             ],
             "description": "Modern task runner",
-            "time": "2017-05-27T01:53:31+00:00"
+            "time": "2019-09-13T20:58:15+00:00"
+        },
+        {
+            "name": "consolidation/self-update",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/consolidation/self-update.git",
+                "reference": "a283a41a2edf23104b6be95674e840aa623d519a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/consolidation/self-update/zipball/a283a41a2edf23104b6be95674e840aa623d519a",
+                "reference": "a283a41a2edf23104b6be95674e840aa623d519a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "symfony/console": "^2.8|^3|^4",
+                "symfony/filesystem": "^2.5|^3|^4"
+            },
+            "bin": [
+                "scripts/release"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SelfUpdate\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Anderson",
+                    "email": "greg.1.anderson@greenknowe.org"
+                },
+                {
+                    "name": "Alexander Menk",
+                    "email": "menk@mestrona.net"
+                }
+            ],
+            "description": "Provides a self:update command for Symfony Console applications.",
+            "time": "2018-10-28T01:52:15+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -463,6 +606,54 @@
                 "notation"
             ],
             "time": "2017-01-20T21:14:22+00:00"
+        },
+        {
+            "name": "grasmash/expander",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/grasmash/expander.git",
+                "reference": "bd149d4454c05a204d9540373df786c9089340f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/grasmash/expander/zipball/bd149d4454c05a204d9540373df786c9089340f0",
+                "reference": "bd149d4454c05a204d9540373df786c9089340f0",
+                "shasum": ""
+            },
+            "require": {
+                "dflydev/dot-access-data": "^1.1.0",
+                "php": ">=5.6",
+                "psr/log": "^1.0"
+            },
+            "require-dev": {
+                "greg-1-anderson/composer-test-scenarios": "^1",
+                "phpunit/phpunit": "^5.5.4",
+                "satooshi/php-coveralls": "^1.0.2|dev-master",
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Grasmash\\Expander\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthew Grasmick"
+                }
+            ],
+            "description": "Expands internal property references in PHP arrays file.",
+            "time": "2019-08-17T02:35:41+00:00"
         },
         {
             "name": "grasmash/yaml-expander",
@@ -814,9 +1005,9 @@
             "authors": [
                 {
                     "name": "Phil Bennett",
-                    "role": "Developer",
                     "email": "philipobenito@gmail.com",
-                    "homepage": "http://www.philipobenito.com"
+                    "homepage": "http://www.philipobenito.com",
+                    "role": "Developer"
                 }
             ],
             "description": "A fast and intuitive dependency injection container.",
@@ -1136,12 +1327,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message.git",
-                "reference": "ce8f43ac1e294b54aabf5808515c3554a19c1e1c"
+                "reference": "274c2c25545b1895b11f9ba55d373ea15c94c59c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message/zipball/ce8f43ac1e294b54aabf5808515c3554a19c1e1c",
-                "reference": "ce8f43ac1e294b54aabf5808515c3554a19c1e1c",
+                "url": "https://api.github.com/repos/php-http/message/zipball/274c2c25545b1895b11f9ba55d373ea15c94c59c",
+                "reference": "274c2c25545b1895b11f9ba55d373ea15c94c59c",
                 "shasum": ""
             },
             "require": {
@@ -1159,6 +1350,7 @@
                 "ext-zlib": "*",
                 "guzzlehttp/psr7": "^1.0",
                 "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "localheinz/composer-normalize": "^1.2.0",
                 "phpspec/phpspec": "^2.4",
                 "slim/slim": "^3.0",
                 "zendframework/zend-diactoros": "^1.0"
@@ -1200,7 +1392,7 @@
                 "message",
                 "psr-7"
             ],
-            "time": "2019-08-05T06:55:08+00:00"
+            "time": "2019-08-19T11:58:50+00:00"
         },
         {
             "name": "php-http/message-factory",
@@ -1304,20 +1496,20 @@
         },
         {
             "name": "provision-ops/power-process",
-            "version": "dev-master",
+            "version": "dev-update-robo-2-0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/provision-ops/power-process.git",
-                "reference": "7f7699fbe5f38da0dfb4451b00e707ec07aa9891"
+                "reference": "de2c7ec969a1b5cb1c805974c5151d7924cb2a5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/provision-ops/power-process/zipball/7f7699fbe5f38da0dfb4451b00e707ec07aa9891",
-                "reference": "7f7699fbe5f38da0dfb4451b00e707ec07aa9891",
+                "url": "https://api.github.com/repos/provision-ops/power-process/zipball/de2c7ec969a1b5cb1c805974c5151d7924cb2a5e",
+                "reference": "de2c7ec969a1b5cb1c805974c5151d7924cb2a5e",
                 "shasum": ""
             },
             "require": {
-                "consolidation/robo": "^1.4",
+                "consolidation/robo": "^2.0@dev",
                 "symfony/process": "~3.0"
             },
             "type": "library",
@@ -1337,7 +1529,58 @@
                 }
             ],
             "description": "A more powerful Process component.",
-            "time": "2019-08-15T22:18:38+00:00"
+            "time": "2019-09-28T15:51:19+00:00"
+        },
+        {
+            "name": "provision-ops/update-dependencies",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/provision-ops/update-dependencies.git",
+                "reference": "670c4ab2caefcdf1ba9d4639ed1e4c8fb5784e89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/provision-ops/update-dependencies/zipball/670c4ab2caefcdf1ba9d4639ed1e4c8fb5784e89",
+                "reference": "670c4ab2caefcdf1ba9d4639ed1e4c8fb5784e89",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1",
+                "ext-json": "*",
+                "knplabs/github-api": "~2.11",
+                "php-http/guzzle6-adapter": "^1.1",
+                "teqneers/php-stream-wrapper-for-git": "^2.0",
+                "vlucas/phpdotenv": "^2.0 || ^3.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.9@dev",
+                "squizlabs/php_codesniffer": "~2"
+            },
+            "bin": [
+                "updep"
+            ],
+            "type": "composer-plugin",
+            "extra": {
+                "class": "ProvisionOps\\UpdateDependencies\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "ProvisionOps\\UpdateDependencies\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jon Pugh",
+                    "email": "jon@thinkdrop.net"
+                }
+            ],
+            "description": "Composer plugin that allows for automatic Pull Requests submission when there is a Composer Update detected.",
+            "time": "2019-09-28T16:30:36+00:00"
         },
         {
             "name": "psr/cache",
@@ -1649,12 +1892,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "e9dc56d15bfc0b2626785ee7368b473b95360eb5"
+                "reference": "48ee3cc79ac213a555293472c220ae3334935d25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/e9dc56d15bfc0b2626785ee7368b473b95360eb5",
-                "reference": "e9dc56d15bfc0b2626785ee7368b473b95360eb5",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/48ee3cc79ac213a555293472c220ae3334935d25",
+                "reference": "48ee3cc79ac213a555293472c220ae3334935d25",
                 "shasum": ""
             },
             "require": {
@@ -1697,7 +1940,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2019-08-14T13:27:41+00:00"
+            "time": "2019-08-21T15:14:41+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2792,6 +3035,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "provision-ops/power-process": 20,
+        "provision-ops/update-dependencies": 20,
         "composer/composer": 20
     },
     "prefer-stable": false,
