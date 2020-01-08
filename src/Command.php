@@ -149,6 +149,12 @@ class Command extends BaseCommand
             'The hostname to use in the status description. Use if automatically detected hostname is not desired.',
             gethostname()
         );
+        $this->addOption(
+            'groups',
+            null,
+            InputOption::VALUE_OPTIONAL,
+            'Only run tests that are in the specified groups. Separate with a comma. Prefix with ! to exclude.'
+        );
         $this->addArgument(
             'filter',
             InputArgument::IS_ARRAY,
@@ -422,9 +428,10 @@ class Command extends BaseCommand
                 } else {
                     // If the test has the ignore failure flag, ignore it.
                     if (!empty($test['ignore-failure'])) {
-                        $results_row[] = '<fg=red>✘</> Failed (Ignoring)';
+                        $results_row[] = '<fg=red>!</> Failed but ignoring';
                         $params->state = 'success';
-                        $params->description .= ' | TEST FAILED but is set to ignore.';
+                        $params->description .= ' | TEST FAILED but is configured to ignore failures.';
+                        $this->warningLite('Test configured to ignore failures. Not triggering failure exit code or commit status.');
                     } else {
                         $results_row[] = '<fg=red>✘</> Failed';
                         $tests_failed = true;

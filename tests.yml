@@ -1,6 +1,13 @@
 # tests/phpunit: phpunit
-yaml-tests/lint: find src -name '*.php' -print0 | xargs -0 -n1 php -l
-yaml-tests/phpcs: bin/phpcs --standard=PSR2 -n src --colors
+yaml-tests/lint:
+  command: find src -name '*.php' -print0 | xargs -0 -n1 php -l
+  group: static
+
+yaml-tests/phpcs:
+  command: bin/phpcs --standard=PSR2 -n src --colors
+  groups:
+    - static
+    - local
 
 yaml-tests/github-comment-test:
   description: Confirm github errors get truncated enough.
