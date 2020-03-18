@@ -25,7 +25,7 @@ if ($pharPath) {
 }
 $classLoader = require $autoloaderPath;
 
-use ProvisionOps\YamlTests\Command as YamlTestsCommand;
+use DevShop\Component\YamlTasks\Command as YamlTasksCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -33,7 +33,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 $version = 'dev';
 $application = new Application('yaml-tests', $version);
 
-$command = new YamlTestsCommand();
+$command = new YamlTasksCommand();
 $application->add($command);
 $application->setDefaultCommand($command->getName(), true);
 
