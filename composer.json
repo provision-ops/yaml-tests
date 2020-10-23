@@ -27,7 +27,7 @@
         "class": "ProvisionOps\\YamlTests\\Plugin"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "~2"
+        "squizlabs/php_codesniffer": "~3"
     },
     "config": {
         "bin-dir": "bin",
